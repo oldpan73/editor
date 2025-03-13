@@ -3,8 +3,10 @@
   |-- index.php
   |-- upload.php
   |-- js/funzioni.js
+  |-- css/style.css  
   |-- list_images.php
   |-- list_years.php
-  |-- delete_image.php   (opzionale)
-  |-- salva_testo.php    (per salvare il contenuto dell'editor)
-  |-- uploads/           (cartella che conterrà le immagini e le sottocartelle per anno e mese)
+  |-- delete_image.php   
+  |-- salva_testo.php    
+  |-- uploads/           
+  |-- dbmultimedia.sql 

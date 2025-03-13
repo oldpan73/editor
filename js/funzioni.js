@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // Inizializzazione di Summernote con pulsante personalizzato "Libreria"
-    $('#summernote').summernote({
-      height: 500,
+    $('#editortest').summernote({
+      height: 300,
       callbacks: {
         onImageUpload: function(files) {
           for (var i = 0; i < files.length; i++) {
@@ -28,8 +28,8 @@ $(document).ready(function() {
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
         ['table', ['table']],
-        ['insert', ['link', 'picture', 'video']],
-        ['misc', ['mediaLibrary']]
+        ['insert', ['link', 'picture']],
+        ['misc', ['fullscreen', 'codeview','mediaLibrary']]
       ],
       buttons: {
         mediaLibrary: function(context) {
