@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi SEO con Yoast</title>
+    <script src="https://unpkg.com/yoastseo"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        textarea { width: 80%; height: 150px; margin-bottom: 10px; }
+        .result-box { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+        .result { padding: 10px; border-radius: 5px; width: 150px; text-align: center; font-weight: bold; }
+        .good { background: #c8f7c5; color: #2d7b2d; }
+        .ok { background: #fce181; color: #9a7600; }
+        .bad { background: #f8c6c6; color: #a40000; }
+    </style>
+</head>
+<body>
+
+    <h2>Analisi SEO con Yoast</h2>
+    <textarea id="content" placeholder="Scrivi qui il tuo testo..."></textarea><br>
+    <button onclick="analyzeSEO()">Analizza SEO</button>
+
+    <div class="result-box">
+        <div id="readability" class="result">Leggibilità: ❓</div>
+        <div id="seo-score" class="result">SEO Score: ❓</div>
+    </div>
+
+    <script>
+        function analyzeSEO() {
+            const text = document.getElementById('content').value;
+            const config = new window.yoastseo.Config();
+            const researcher = new window.yoastseo.Researcher();
+            const paper = new window.yoastseo.Paper(text, { keyword: "SEO", title: "Titolo della pagina" });
+            const analyzer = new window.yoastseo.Analyzer(paper, config, researcher);
+            const results = analyzer.analyze();
+
+            updateUI(results);
+        }
+
+        function updateUI(results) {
+            const readabilityScore = results.readabilityOverall;
+            const seoScore = results.seoOverall;
+            
+            updateResult("readability", readabilityScore);
+            updateResult("seo-score", seoScore);
+        }
+
+        function updateResult(elementId, score) {
+            const element = document.getElementById(elementId);
+            if (score >= 8) {
+                element.className = "result good";
+                element.innerHTML = `✅ Ottimo`;
+            } else if (score >= 5) {
+                element.className = "result ok";
+                element.innerHTML = `⚠️ Medio`;
+            } else {
+                element.className = "result bad";
+                element.innerHTML = `❌ Scarso`;
+            }
+        }
+    </script>
+
+</body>
+</html>

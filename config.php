@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$db   = 'nomedb';
+$db   = 'haccp';
 $user = 'root';
-$pass = '';
+$pass = 'andrea';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

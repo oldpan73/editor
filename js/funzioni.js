@@ -16,7 +16,7 @@ $(document).ready(function() {
             if (pastedData.includes('<table')) {
               event.preventDefault();
               let formattedTable = cleanTable(pastedData);
-              $('#summernote').summernote('pasteHTML', formattedTable);
+              $('#editortest').summernote('pasteHTML', formattedTable);
             }
           }
 
@@ -74,7 +74,7 @@ $(document).ready(function() {
         processData: false,
         success: function(url) {
           // Inserisce l'immagine originale nell'editor
-          $('#summernote').summernote('insertImage', url);
+          $('#editortest').summernote('insertImage', url);
         },
         error: function(jqXHR, textStatus, errorThrown) {
           console.error("Errore durante il caricamento dell'immagine: " + textStatus + " " + errorThrown);
@@ -122,7 +122,7 @@ $(document).ready(function() {
     // inserisce l'immagine originale nell'editor e chiude il modal.
     $(document).on('click', '.selectable-image', function() {
       var imgUrl = $(this).data('url');
-      $('#summernote').summernote('insertImage', imgUrl);
+      $('#editortest').summernote('insertImage', imgUrl);
       $('#mediaLibraryModal').modal('hide');
     });
 
